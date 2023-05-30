@@ -1,0 +1,44 @@
+
+
+<h1>Add Product</h1>
+<hr>
+
+<form [formGroup]="myForm">
+
+  <div class="row g-3 align-items-center mb-3">
+
+    <div class="col-auto">
+      <label>Name:</label>
+    </div>
+
+    <div class="col-auto">
+      <input formControlName="name" type="text" class="form-conrol"/>
+    </div>
+
+    <div class="col-auto">
+      <span customLabel
+        [color]="color"
+        [errors]="myForm.get('name')?.errors"
+      >
+        Temporary
+      </span>
+    </div>
+
+  </div>
+
+  <div class="row">
+    <div class="col">
+      <button
+        (click)="changecolor()"
+        class="btn btn-primary"
+      >
+        Change color
+      </button>
+    </div>
+  </div>
+</form>
+
+<pre class="mt-5">
+  {{ myForm.get('name')?.errors | json }}
+</pre>
+<p>Color: {{ color }} </p>
